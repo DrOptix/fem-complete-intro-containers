@@ -17,5 +17,12 @@ cp -v /lib/x86_64-linux-gnu/libtinfo.so.5 \
 cp -v /lib64/ld-linux-x86-64.so.2 \
     ./new_root/lib64/
 
+# Copy `ls` and dependencies
+cp -v /bin/ls ./new_root/bin/
+cp -v /lib/x86_64-linux-gnu/libselinux.so.1 \
+    /lib/x86_64-linux-gnu/libpcre.so.3 \
+    /lib/x86_64-linux-gnu/libpthread.so.0 \
+    ./new_root/lib/x86_64-linux-gnu/
+
 # Start `bash` jailed to `new_root`
 chroot new_root bash
