@@ -27,5 +27,8 @@ cp -v /lib/x86_64-linux-gnu/libselinux.so.1 \
 # Copy `cat` and dependencies
 cp -v /bin/cat ./new_root/bin/
 
+# Create the secret file
+echo "this is a secret" > ./new_root/secret.txt
+
 # Start `bash` jailed to `new_root`
 chroot new_root bash

@@ -9,6 +9,3 @@ WORKDIR /work/chroot/
 COPY chroot.sh ./chroot.sh
 RUN chmod +x ./chroot.sh
 
-# Create the secret file
-RUN echo "this is a secret" > ./new_root/secret.txt
-
