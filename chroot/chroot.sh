@@ -8,9 +8,6 @@ mkdir -vp /work/chroot/new_root/bin/
 mkdir -vp /work/chroot/new_root/lib/x86_64-linux-gnu/
 mkdir -vp /work/chroot/new_root/lib64/
 
-# Create the secret file
-echo "this is a secret" > ./new_root/secret.txt
-
 # Copy `bash` and dependencies
 cp -v /bin/bash ./new_root/bin/
 cp -v /lib/x86_64-linux-gnu/libtinfo.so.5 \
