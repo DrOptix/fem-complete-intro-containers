@@ -21,11 +21,11 @@ COPY chroot_b.sh ./chroot_b.sh
 RUN chmod +x ./chroot_b.sh
 
 
-COPY chroot_tail.sh ./tail.sh
+COPY tail.sh ./tail.sh
 RUN chmod +x ./tail.sh
 
-COPY chroot_kill_tail.sh ./kill_tail.sh
+COPY kill_tail.sh ./kill_tail.sh
 RUN chmod +x ./kill_tail.sh
 
-COPY chroot_read_secret.sh ./read_secret.sh
+COPY read_secret.sh ./read_secret.sh
 RUN chmod +x ./read_secret.sh
