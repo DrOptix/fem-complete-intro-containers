@@ -26,3 +26,6 @@ RUN chmod +x ./tail.sh
 
 COPY chroot_kill_tail.sh ./kill_tail.sh
 RUN chmod +x ./kill_tail.sh
+
+COPY chroot_read_secret.sh ./read_secret.sh
+RUN chmod +x ./read_secret.sh
