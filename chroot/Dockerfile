@@ -1,7 +1,11 @@
 FROM ubuntu:bionic
 
+# Create chroot playground
 RUN mkdir -p /work/chroot/new_root/
-COPY chroot.sh /work/chroot/chroot.sh
-RUN chmod +x /work/chroot/chroot.sh
 
 WORKDIR /work/chroot/
+
+# Create chroot.sh
+COPY chroot.sh ./chroot.sh
+RUN chmod +x ./chroot.sh
+

@@ -8,9 +8,6 @@ mkdir -vp /work/chroot/new_root/bin/
 mkdir -vp /work/chroot/new_root/lib/x86_64-linux-gnu/
 mkdir -vp /work/chroot/new_root/lib64/
 
-# Create the secret file
-echo "this is a secret" > ./new_root/secret.txt
-
 # Copy `bash` and dependencies
 cp -v /bin/bash ./new_root/bin/
 cp -v /lib/x86_64-linux-gnu/libtinfo.so.5 \
@@ -29,6 +26,9 @@ cp -v /lib/x86_64-linux-gnu/libselinux.so.1 \
 
 # Copy `cat` and dependencies
 cp -v /bin/cat ./new_root/bin/
+
+# Create the secret file
+echo "this is a secret" > ./new_root/secret.txt
 
 # Start `bash` jailed to `new_root`
 chroot new_root bash
