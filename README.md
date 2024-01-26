@@ -33,3 +33,11 @@ Starting from `chroot_problems` we make use of `unshare` tool to disable passtro
 - From inside this container run `./chroot_b.sh` wait for it to launch a `bash` shell.
 - Execute `./read_secret.sh`
 - Profit, `root_b` process can't read stuff from `root_a` file descriptor.
+
+### cgroups
+
+Using `cgroups` we can set quotas on memory, CPU, devices etc.
+
+We need to have installed `cgroup-tools` or whatever name it has for your distro.
+
+_TODO_: Find a solution for `libcgroup initialization failed: Cgroup is not mounted`.
