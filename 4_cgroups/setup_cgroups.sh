@@ -1,8 +1,6 @@
 #!/bin/bash
 
 mount -t proc none /proc
-mount -t sysfs none /sys
-mount -t tempfs none /tmp
 
 # Create a new cgroup
 cgcreate -g cpu,memory,blkio,devices,freezer:/sandbox
