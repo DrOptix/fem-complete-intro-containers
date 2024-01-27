@@ -9,5 +9,5 @@ unshare \
     --fork \
     --user \
     --map-root-user \
-    chroot ./root_a bash
+    chroot ./root bash
 

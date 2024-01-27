@@ -16,7 +16,7 @@ RUN mkdir -p /work/chroot/root/
 WORKDIR /work/chroot/
 
 # Setup `root_a`
-ADD bionic ./root_a
+ADD bionic ./root
 
 COPY setup_cgroups.sh ./setup_cgroups.sh
 
