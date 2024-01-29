@@ -1,25 +1,16 @@
-FROM ubuntu:bionic
-
-# Use `bash` as default `sh` is not nice
-SHELL ["/bin/bash", "-c"]
-
-# Install debootstrap
-RUN apt-get update
-RUN apt-get install -y \
-    debootstrap \
-    cgroup-tools \
-    htop
+FROM fedora:39
 
 # Create chroot playground
-RUN mkdir -p /work/chroot/root/
-
 WORKDIR /work/chroot/
 
-# Setup `root_a`
-ADD bionic ./root
-
-COPY setup_cgroups.sh ./setup_cgroups.sh
+# Install debootstrap
+RUN dnf install -y debootstrap libcgroup-tools htop
+RUN debootstrap --variant=minbase jammy ./root
 
 COPY chroot.sh ./chroot.sh
+# COPY debootstrap.sh ./debootstrap.sh
+COPY setup_cgroups.sh ./setup_cgroups.sh
+COPY delete_cgroups.sh ./delete_cgroups.sh
+
 COPY spam_cpu.sh ./root/spam_cpu.sh
 COPY spam_memory.sh ./root/spam_memory.sh

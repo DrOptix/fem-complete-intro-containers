@@ -3,11 +3,11 @@
 mount -t proc none /proc
 
 # Create a new cgroup
-cgcreate -g cpu,memory,blkio,devices,freezer:/sandbox
+cgcreate -g cpu,memory:sandbox
 
 # Add the jail to the cgroup
 # TODO: Find a way to get the jail PID automatically
-cgclassify -g cpu,memory,blkio,devices,freezer:sandbox $1
+cgclassify -g cpu,memory:sandbox $1
 
 # List tasks associated to the sandbox cgroup, we should
 # see the above PID
