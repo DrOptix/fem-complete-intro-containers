@@ -1,8 +1,13 @@
-FROM node:20-alpine
+FROM alpine:latest
+
+RUN apk add --update nodejs npm
+
+RUN addgroup -S node && adduser -S node -G node
 
 USER node
 
 RUN mkdir -p /home/node/app
+
 WORKDIR /home/node/app
 
 COPY ./node_alpine_scratch/package.json \
