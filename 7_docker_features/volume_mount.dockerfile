@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:12-alpine
 
 COPY --chown=node:node ./volume_mount /app
 
