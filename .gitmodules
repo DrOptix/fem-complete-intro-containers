@@ -1,0 +1,3 @@
+[submodule "7_docker_features/hugo-example"]
+	path = 7_docker_features/hugo-example
+	url = https://github.com/btholt/hugo-example.git
