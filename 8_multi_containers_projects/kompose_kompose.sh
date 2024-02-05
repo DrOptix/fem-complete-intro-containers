@@ -2,10 +2,9 @@
 
 pushd ./kompose
 
-minikube tunnel &
-minikube_tunnel_pid=$!
-
-minikube start && kubectl uncordon minikube
+minikube start
+minikube tunnel 2>/dev/null &
+kubectl uncordon minikube
 
 kompose convert -o ./k8s/
 
