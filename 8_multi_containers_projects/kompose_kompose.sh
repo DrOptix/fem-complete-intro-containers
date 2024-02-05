@@ -3,18 +3,17 @@
 pushd ./kompose
 
 minikube start
+
 minikube tunnel 2>/dev/null &
+sleep 1m
+
 kubectl uncordon minikube
 
 kompose convert -o ./k8s/
+kubectl apply -f ./k8s
+kubectl scale --replicas=5 deployment/web
+sleep 1m
 
-kubectl replace --force -f ./k8s
-
-url=$(minikube service web-tcp --url)
-
-echo
-echo "Minikube Tunnel PID: $minikube_tunnel_pid"
-echo "Copied to clipboard: $url"
-echo -e $url | xclip -sel clip
+minikube service --all
 
 popd
