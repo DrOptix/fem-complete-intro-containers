@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Enter secure `root_a` jail
+# Enter secure `root` jail
 unshare \
     --mount \
     --uts \
