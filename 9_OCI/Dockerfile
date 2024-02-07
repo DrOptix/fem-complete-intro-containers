@@ -15,4 +15,5 @@ WORKDIR /work
 
 # Blah blah blah
 # .......
-        
+
+CMD ["bash"]
