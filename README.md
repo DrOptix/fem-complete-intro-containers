@@ -66,3 +66,13 @@ We present 3 ways to use a Dockerfile. All of them are running an `index.js` usi
    - Build the image using `./build_oprimized_build.sh`
    - Run the image using `./run_optimized_build.sh`
    - This will expose on `https://localhost:3000` our Node application
+
+### Tiny Containers
+
+The same idea as in `Dockerfiles` section. The difference is that we focus on small container images. There are two approaches. Use Alpine Linux small images only, or we can use a two stage setup where we have a `build` stage in our docker file where we use a fat docker image. Then we build the production image based on Alpine Linux.
+
+Example of a two stage docker file:
+
+    - Build the image using: `./build_node_multi_stage.sh`
+    - Run the image using: `./run_node_multi_stage.sh`
+    - This will expose on `https://localhost:3000` our Node application
