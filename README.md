@@ -108,3 +108,7 @@ To clean everythin up use `./destroy_kompose.sh`.
 Kubernetes is quite complicated and I want to learn more, especially the scale up and scale down aspects of it, but here is not the place for it.
 
     > Tip: if you have problems entering `sudo` password when setting up the minikube tunnel, just do an `sudo echo` to setup a `sudo` session.
+
+### OCI
+
+In this chapter there is an example on how to build an image with Buildah and then run that image with Buildah itself and with Podman. Keep in mind that the Podman example did not always work. I don't know why it's not working and I don't know why it worked, when it worked.
