@@ -76,3 +76,13 @@ Example of a two stage docker file:
     - Build the image using: `./build_node_multi_stage.sh`
     - Run the image using: `./run_node_multi_stage.sh`
     - This will expose on `https://localhost:3000` our Node application
+
+### Docker Features
+
+This section show docker feature like bind mounts, volume mounts, networks and how they can be usefull to setup docker development containers.
+
+An example of running two containers on the same network, a server and a client.
+
+    - Run the server using `./run_mongo_db_server.sh`
+    - Run the client with `./run_mongo_db_client.sh`
+    - This will open a REPL and you will be able to interact with the Mongo server.
