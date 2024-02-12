@@ -86,3 +86,25 @@ An example of running two containers on the same network, a server and a client.
     - Run the server using `./run_mongo_db_server.sh`
     - Run the client with `./run_mongo_db_client.sh`
     - This will open a REPL and you will be able to interact with the Mongo server.
+
+### Multi Container Projects
+
+Here we have POC of using Docker Compose, then later Kompose to create Kubernetes deployment script based on the Docker Compose files.
+
+Docker compose example:
+
+    - Run `./compse_nodemon.sh`
+
+This will run an attached Docker Compose setting up a Mongo DB server and a web application that is server on `http://localhost:3000`, going to `http://localhost:3000/add` will count how many times we accessed the link and will save this in the Mongo DB.
+
+What is interesting is the usage of `nodemon` to serve the web application. Everytime we change the code of the application.
+
+The example for Kubernetes is more complicated, but in short in `./kompose_kompose.sh`, we start `minikube`, setup a tunnel to `minikube` so the load balancer can be reached from the host, convert docker compose to kubernets files, do a kubernets deployment, scale the web container to 5 instances.
+
+The application can be accessed from the host on an url like `http://192.168.49.2:32695`, the port varies so you must check the output of `./kompose_kompose.sh`.
+
+To clean everythin up use `./destroy_kompose.sh`.
+
+Kubernetes is quite complicated and I want to learn more, especially the scale up and scale down aspects of it, but here is not the place for it.
+
+    > Tip: if you have problems entering `sudo` password when setting up the minikube tunnel, just do an `sudo echo` to setup a `sudo` session.
