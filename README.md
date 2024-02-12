@@ -41,3 +41,28 @@ Using `cgroups` we can set quotas on memory, CPU, devices etc.
 We need to have installed `cgroup-tools` or whatever name it has for your distro.
 
 _TODO_: Find a solution for `libcgroup initialization failed: Cgroup is not mounted`.
+
+### Dockerfile
+
+We present 3 ways to use a Dockerfile. All of them are running an `index.js` using Node from inside the container.
+
+1. We use a Node image directly to run our application.
+
+   - Build the image using `./build_node.sh`
+   - Run the image using `./run_node.sh`
+
+2. We use a Debian image as base and we create a Node container from scratch to run our application.
+
+   - Build the image using `./build_node_complex.sh`
+   - Run the image using `./run_node_complex.sh`
+   - This will expose on `https://localhost:3000` our Node application
+
+3. We use a Debian image as base and we create a Node container from scratch to run our application.
+
+   The steps from the docker file, `node_optimized_build.dockerfile`, are placed in such an order that `npm ci` step will be cached by docker most of the time.
+
+   The volatile layer, ` COPY --chown=node:node ./node_complex ./`, being after `RUN npm ci`, will not trigger a full image rebuild, the heavy lifting being already cached.
+
+   - Build the image using `./build_oprimized_build.sh`
+   - Run the image using `./run_optimized_build.sh`
+   - This will expose on `https://localhost:3000` our Node application
